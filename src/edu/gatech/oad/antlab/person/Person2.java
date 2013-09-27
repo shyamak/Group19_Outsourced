@@ -1,11 +1,14 @@
-package edu.gatech.oad.antlab.person;
+import java.util.ArrayList;
+import java.util.Random;
+
+
 
 /**
  *  A simple class for person 2
  *  returns their name and a
  *  modified string 
  *
- * @author Bob
+ * @author Tanay Ponkshe
  * @version 1.1
  */
 public class Person2 {
@@ -29,9 +32,26 @@ public class Person2 {
 	 * @param input the string to be modified
 	 * @return the modified string
 	 */
-	private String calc(String input) {
-	  //Person 2 put your implementation here
-	  return null;
+	private static String calc(String input) {
+		ArrayList<Character> chars = new ArrayList<Character>();
+		int i=0;
+		while(i<input.length()){
+			char character = input.charAt(i);
+			chars.add(character);
+			i++;
+			
+		}
+		Random rand = new Random();
+	
+		String returnString="";
+		int j=0;
+		while(j<input.length()){
+			int r = rand.nextInt(chars.size());
+			returnString = returnString + chars.get(r);
+			chars.remove(r);
+			j++;
+		}
+		  return returnString;
 	}
 	/**
 	 * Return a string rep of this object
@@ -43,5 +63,8 @@ public class Person2 {
 	 */
 	public String toString(String input) {
 	  return name + calc(input);
+	}
+	public static void main(String[] args){
+		System.out.println(calc("gtg123b"));
 	}
 }
