@@ -1,7 +1,4 @@
-Group19_Outsourced
-==================
-
-<h1>CS 2340_Project_MULE</h1>
+<h1>CS 2340 Project MULE</h1>
 
 <hr />
 <p>
@@ -10,7 +7,7 @@ Set on the fictional planet Irata (which is Atari backwards), the game is an exe
 <h1>Outsourced</h1>
 
 Jerry "Yeezy" Yee
-Ishaan Grover
-Shamalak
-Tanay
-Nikhil
+<br>Ishaan Grover
+<br>Shamalak
+<br>Tanay
+<br>Nikhil
