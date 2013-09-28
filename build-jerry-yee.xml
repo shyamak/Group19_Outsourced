@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="MULE" default="compile" basedir=".">
+<project name="MULE by yee" default="compile" basedir=".">
 
 	<target name="init">
 		<property name="src.dir" value="src" />
