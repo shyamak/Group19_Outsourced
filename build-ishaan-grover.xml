@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="MULE by ishaan" default="compile" basedir=".">
+
+	<target name="init">
+		<property name="src.directory" value="src" />
+		<property name="lib.dir" value="lib" />
+		<property name="bui.dir" value="build" />
+		<property name="api.dir" location="javadoc" />
+	</target>
+
+	<target name="prepare" depends="init">
+		<mkdir dir="${build.dir}" />
+		<mkdir dir="${api.dir}" />
+	</target>
+
+	<target name="compile" depends="prepare">
+		<javac destdir="${build.dir}" classpath="${library.dir}/resources.jar">
+			<src path="${src.dir}" />
+		</javac>
+	</target>
+
+	<target name="javadoc" depends="init">
+		<javadoc sourcepath="${src.dir}" access="public" destdir="${api.dir}" packagenames="edu.gatech.oad.antlab.person">
+			<fileset dir="${src.dir}">
+				<include name="**/*.java" />
+			</fileset>
+			<classpath>
+				<pathelement path="${library.dir}" />
+			</classpath>
+		</javadoc>
+	</target>
+
+	<target name="jar" depends="compile">
+		<jar destfile="${build.dir}/AntLabRun.jar" basedir="${build.dir}">
+			<include name="**/**.class" />
+			<manifest>
+				<attribute name="Main-Class" value="edu.gatech.oad.antlab.pkg1.AntLabMain" />
+				<attribute name="Class-Path" value="../${library.dir}/resources.jar" />
+			</manifest>
+		</jar>
+	</target>
+
+	<target name="run" depends="jar">
+		<java jar="${build.dir}/AntLabRun.jar" fork="true" />
+	</target>
+
+	<target name="all" depends="run">
+		<echo message="file end...yayyyy!!! #IAmAwesome" />
+	</target>
+
+	<target name="clean" depends="init">
+		<delete dir="${build.dir}" />
+		<delete dir="${javadoc.dir}" />
+	</target>
+</project>
