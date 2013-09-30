@@ -1,5 +1,3 @@
-package edu.gatech.oad.antlab.person;
-
 /**
  *  A simple class for person 1
  *  returns their name and a
@@ -8,7 +6,7 @@ package edu.gatech.oad.antlab.person;
  *  @author Shyamak
  *  @version 1.1
  */
-public class Person1 {
+public class Person2 {
   /** Holds the persons real name */
   private String name;
   	/**
@@ -16,7 +14,7 @@ public class Person1 {
 	 * name
 	 * @param pname the person's real name
 	 */
-  public Person1(String pname) {
+  public Person2(String pname) {
     name = pname;
   }
   	/**
@@ -30,10 +28,11 @@ public class Person1 {
 	 * @return the modified string
 	 */
 	private String calc(String input) {
-	  //Person 1 put your implementation here
-	  return null;
+	  String firstTwo = input.substring(0, 2);
+	  String remaining = input.substring(2, input.length());
+	  String toReturn = remaining+firstTwo;
+	  return toReturn;
 	}
-	
 	/**
 	 * Return a string rep of this object
 	 * that varies with an input string
@@ -45,5 +44,4 @@ public class Person1 {
 	public String toString(String input) {
 	  return name + calc(input);
 	}
-
 }
