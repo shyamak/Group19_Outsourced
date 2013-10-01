@@ -8,6 +8,6 @@ Set on the fictional planet Irata (which is Atari backwards), the game is an exe
 
 Jerry "Yeezy" Yee
 <br>Ishaan Grover
-<br>Shamalak
+<br>Shyamak
 <br>Tanay
 <br>Nikhil
