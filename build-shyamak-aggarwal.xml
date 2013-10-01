@@ -9,39 +9,39 @@
 	</target>
 
 	<target name="prepare" depends="init">
-		<mkdir dir="${build.dir}" />
-		<mkdir dir="${api.dir}" />
+		<mkdir dir="${build.directory}" />
+		<mkdir dir="${api.directory}" />
 	</target>
 
 	<target name="compile" depends="prepare">
-		<javac destdir="${build.dir}" classpath="${library.dir}/resources.jar">
-			<src path="${src.dir}" />
+		<javac destdir="${build.directory}" classpath="${library.directory}/resources.jar">
+			<src path="${src.directory}" />
 		</javac>
 	</target>
 
 	<target name="javadoc" depends="init">
-		<javadoc sourcepath="${src.dir}" access="public" destdir="${api.dir}" packagenames="edu.gatech.oad.antlab.person">
-			<fileset dir="${src.dir}">
+		<javadoc sourcepath="${src.directory}" access="public" destdir="${api.directory}" packagenames="edu.gatech.oad.antlab.person">
+			<fileset dir="${src.directory}">
 				<include name="**/*.java" />
 			</fileset>
 			<classpath>
-				<pathelement path="${library.dir}" />
+				<pathelement path="${library.directory}" />
 			</classpath>
 		</javadoc>
 	</target>
 
 	<target name="jar" depends="compile">
-		<jar destfile="${build.dir}/AntLabRun.jar" basedir="${build.dir}">
+		<jar destfile="${build.directory}/AntLabRun.jar" basedir="${build.directory}">
 			<include name="**/**.class" />
 			<manifest>
 				<attribute name="Main-Class" value="edu.gatech.oad.antlab.pkg1.AntLabMain" />
-				<attribute name="Class-Path" value="../${library.dir}/resources.jar" />
+				<attribute name="Class-Path" value="../${library.directory}/resources.jar" />
 			</manifest>
 		</jar>
 	</target>
 
 	<target name="run" depends="jar">
-		<java jar="${build.dir}/AntLabRun.jar" fork="true" />
+		<java jar="${build.directory}/AntLabRun.jar" fork="true" />
 	</target>
 
 	<target name="all" depends="run">
@@ -49,7 +49,8 @@
 	</target>
 
 	<target name="clean" depends="init">
-		<delete dir="${build.dir}" />
-		<delete dir="${javadoc.dir}" />
+		<delete dir="${build.directory}" />
+		<delete dir="${javadoc.directory}" />
 	</target>
 </project>
+
