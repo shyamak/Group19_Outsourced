@@ -2,46 +2,46 @@
 <project name="MULE by ishaan" default="compile" basedir=".">
 
 	<target name="init">
-		<property name="src.directory" value="src" />
+		<property name="soc.directory" value="src" />
 		<property name="lib.dir" value="lib" />
 		<property name="bui.dir" value="build" />
 		<property name="api.dir" location="javadoc" />
 	</target>
 
 	<target name="prepare" depends="init">
-		<mkdir dir="${build.dir}" />
+		<mkdir dir="${bui.dir}" />
 		<mkdir dir="${api.dir}" />
 	</target>
 
 	<target name="compile" depends="prepare">
-		<javac destdir="${build.dir}" classpath="${library.dir}/resources.jar">
-			<src path="${src.dir}" />
+		<javac destdir="${bui.dir}" classpath="${lib.dir}/resources.jar">
+			<src path="${soc.directory}" />
 		</javac>
 	</target>
 
 	<target name="javadoc" depends="init">
-		<javadoc sourcepath="${src.dir}" access="public" destdir="${api.dir}" packagenames="edu.gatech.oad.antlab.person">
-			<fileset dir="${src.dir}">
+		<javadoc sourcepath="${soc.directory}" access="public" destdir="${api.dir}" packagenames="edu.gatech.oad.antlab.person">
+			<fileset dir="${soc.directory}">
 				<include name="**/*.java" />
 			</fileset>
 			<classpath>
-				<pathelement path="${library.dir}" />
+				<pathelement path="${lib.dir}" />
 			</classpath>
 		</javadoc>
 	</target>
 
 	<target name="jar" depends="compile">
-		<jar destfile="${build.dir}/AntLabRun.jar" basedir="${build.dir}">
+		<jar destfile="${bui.dir}/AntLabRun.jar" basedir="${bui.dir}">
 			<include name="**/**.class" />
 			<manifest>
 				<attribute name="Main-Class" value="edu.gatech.oad.antlab.pkg1.AntLabMain" />
-				<attribute name="Class-Path" value="../${library.dir}/resources.jar" />
+				<attribute name="Class-Path" value="../${lib.dir}/resources.jar" />
 			</manifest>
 		</jar>
 	</target>
 
 	<target name="run" depends="jar">
-		<java jar="${build.dir}/AntLabRun.jar" fork="true" />
+		<java jar="${bui.dir}/AntLabRun.jar" fork="true" />
 	</target>
 
 	<target name="all" depends="run">
@@ -49,7 +49,7 @@
 	</target>
 
 	<target name="clean" depends="init">
-		<delete dir="${build.dir}" />
+		<delete dir="${bui.dir}" />
 		<delete dir="${javadoc.dir}" />
 	</target>
 </project>
