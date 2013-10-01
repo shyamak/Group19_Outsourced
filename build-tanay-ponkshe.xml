@@ -3,7 +3,7 @@
 
 	<target name="init">
 		<property name="source.dir" value="src" />
-		<property name="lib.dir" value="lib" />
+		<property name="library.dir" value="lib" />
 		<property name="build.dir" value="build" />
 		<property name="api.dir" location="javadoc" />
 	</target>
@@ -15,13 +15,13 @@
 
 	<target name="compile" depends="prepare">
 		<javac destdir="${build.dir}" classpath="${library.dir}/resources.jar">
-			<src path="${src.dir}" />
+			<src path="${source.dir}" />
 		</javac>
 	</target>
 
 	<target name="javadoc" depends="init">
-		<javadoc sourcepath="${src.dir}" access="public" destdir="${api.dir}" packagenames="edu.gatech.oad.antlab.person">
-			<fileset dir="${src.dir}">
+		<javadoc sourcepath="${source.dir}" access="public" destdir="${api.dir}" packagenames="edu.gatech.oad.antlab.person">
+			<fileset dir="${source.dir}">
 				<include name="**/*.java" />
 			</fileset>
 			<classpath>
